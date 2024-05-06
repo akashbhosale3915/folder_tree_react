@@ -32,6 +32,14 @@ const tree = {
             },
           ],
         },
+        {
+          name: "pages",
+          children: [{ name: "Home.jsx" }],
+        },
+        {
+          name: "hooks",
+          children: [{ name: "useFetch.js" }],
+        },
       ],
     },
     {
