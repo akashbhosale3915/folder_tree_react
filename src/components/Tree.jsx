@@ -16,19 +16,22 @@ const TreeNode = ({ tree }) => {
   return (
     <div>
       <button
-        className={tree.children ? "btn folder" : "btn"}
+        className={
+          tree.children ? "btn folder shrunk" : "btn"
+        }
         onClick={() => tree.children && setopen(!open)}
       >
+        {tree.children?.length > 0 && (open ? "- " : "+ ")}
         {tree.name}
       </button>
-      {open && <Branch tree={tree} />}
+      {open && tree.children && <Branch tree={tree} />}
     </div>
   );
 };
 
 const Branch = ({ tree }) => {
   return (
-    <div className="file">
+    <div className="indent">
       {tree?.children?.map((child) => (
         <TreeNode tree={child} key={child.name} />
       ))}
